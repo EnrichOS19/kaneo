@@ -8,6 +8,7 @@ import { openAPIRouteHandler } from "hono-openapi";
 import activity from "./activity";
 import { auth } from "./auth";
 import config from "./config";
+import dashboard from "./dashboard";
 import db from "./database";
 import externalLink from "./external-link";
 import githubIntegration, {
@@ -187,6 +188,7 @@ const githubIntegrationApi = api.route(
 );
 const externalLinkApi = api.route("/external-link", externalLink);
 const invitationApi = api.route("/invitation", invitation);
+const dashboardApi = api.route("/dashboard", dashboard);
 
 app.route("/api", api);
 
@@ -234,6 +236,7 @@ export type AppType =
   | typeof githubIntegrationApi
   | typeof externalLinkApi
   | typeof invitationApi
-  | typeof invitationPublicApi;
+  | typeof invitationPublicApi
+  | typeof dashboardApi;
 
 export default app;
